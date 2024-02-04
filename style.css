@@ -1,0 +1,60 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial Black', sans-serif;
+    background-color: #f7f7f7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    text-align: center;
+}
+
+.title {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    animation: float 3s ease infinite; /* Apply floating animation */
+}
+
+#buttons {
+    display: inline-flex;
+    justify-content: center; /* Center buttons horizontally */
+    align-items: center; /* Center buttons vertically */
+}
+
+button {
+    padding: 15px 25px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin: 0 5px; /* Add a small margin between buttons */
+    transition: all 0.3s ease;
+}
+
+#yes {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 18px; /* Set the initial font size */
+    transition: all 0.3s ease; /* Add transition for font size */
+}
+
+#no {
+    background-color: #f44336;
+    color: white;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
