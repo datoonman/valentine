@@ -4,7 +4,7 @@ let previousMessage = '';
 
 yesButton.addEventListener("click", function() {
     const messageElement = document.getElementById("message");
-    
+
     // Change the text content to include a heart symbol
     messageElement.textContent = "You're now mine ❤️";
     
@@ -17,35 +17,22 @@ yesButton.addEventListener("click", function() {
     // Cute animations
     messageElement.classList.add("cute-animation");
 
-    // Disable visibility of the "no" button
-    noButton.style.visibility = "hidden";
-    
-    // Disable the "Yes" button
-    yesButton.disabled = true;
+    // Hide both "Yes" and "No" buttons
+    yesButton.style.display = "none";
+    noButton.style.display = "none";
 });
 
 noButton.addEventListener("click", function() {
     const messages = ["Really?", "Try Again!", "Last Chance!", "You'll regret it...", "PLeaseee", "WHYYY"];
     
-    // Remove the previously displayed message from the array
     const filteredMessages = messages.filter(message => message !== previousMessage);
-    
     const randomMessage = filteredMessages[Math.floor(Math.random() * filteredMessages.length)];
     document.getElementById("message").textContent = randomMessage;
-    
-    // Store the current message as the previous message
     previousMessage = randomMessage;
-    
-    // Increase the width and height of the Yes button
+
     const currentWidthYes = parseFloat(window.getComputedStyle(yesButton).width);
     const currentHeightYes = parseFloat(window.getComputedStyle(yesButton).height);
-    const newWidthYes = currentWidthYes * 1.5;
-    const newHeightYes = currentHeightYes * 1.5;
-    yesButton.style.width = newWidthYes + 'px'; // Increase width by 1.5 times
-    yesButton.style.height = newHeightYes + 'px'; // Increase height by 1.5 times
-    
-    // Scale up the font size of the Yes button text
     const currentFontSizeYes = parseFloat(window.getComputedStyle(yesButton).fontSize);
-    const newFontSizeYes = currentFontSizeYes * 1.65;
-    yesButton.style.fontSize = newFontSizeYes + 'px';
+
+    yesButton.style.cssText = `width: ${currentWidthYes * 1.5}px; height: ${currentHeightYes * 1.5}px; font-size: ${currentFontSizeYes * 1.65}px`;
 });
